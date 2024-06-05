@@ -5,6 +5,7 @@ import { sendSESEmailWithAttachment } from './helpers/sendSESEmailWithAttachment
 
 const mainFlow = async (customerEmail: string | null | undefined) => {
 	if (!customerEmail) throw new Error('Stripe customer email not found')
+
 	const song = await getObjectFromS3({
 		bucketName: env.AMPLIFY_STRIPE_SONG_CHECKOUT_BUCKET_NAME,
 		objKey: env.SONG_KEY,
